@@ -20,6 +20,8 @@
   - @tailwind components;
   - @tailwind utilities;
 
+  - npm i -D react-router-dom
+
 # Features to build
 
 - Login/SignUp

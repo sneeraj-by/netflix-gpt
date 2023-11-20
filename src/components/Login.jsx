@@ -4,13 +4,12 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Header from "./Header";
 import { BG_URL, userIcon } from "../utils/constants";
 import { validateForm } from "../utils/validateForm";
 import { auth } from "../utils/firebase";
-import { useDispatch } from "react-redux";
 import { addUser } from "../ducks/userSlice";
 
 const Login = () => {
@@ -19,7 +18,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogin = () => {
@@ -28,14 +26,12 @@ const Login = () => {
     if (message) return;
 
     if (!isSignIn) {
-      //SignUp logic
       createUserWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
@@ -51,13 +47,11 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setError(error.message);
             });
 
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -65,16 +59,13 @@ const Login = () => {
           setError(errorCode);
         });
     } else {
-      //SignIn logic
       signInWithEmailAndPassword(
         auth,
         email.current.value,
         password.current.value
       )
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -6,3 +6,17 @@ export const BG_URL =
 
 export const userIcon =
   "https://imgs.search.brave.com/b69e8q5lU7TpfQeQ_7q81DkY4si8IvS3R-ie2g12GP0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1Lzc2LzY5LzY3/LzM2MF9GXzU3NjY5/Njc1MV9zb2NXTXRl/aEVXcDRTeXZEbEp0/c3RJQWtCYWtrR1RW/ay5qcGc";
+
+export const MOVIES_URL =
+  "https://api.themoviedb.org/3/movie/now_playing?page=1";
+// export const MOVIES_URL =
+//   "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&page=1&sort_by=popularity.desc";
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNmQzMDU4ZmMzMmEzYjI3YzdiNjAzODE1N2VlNTZjMSIsInN1YiI6IjY1NWIzN2UzYjU0MDAyMTRkMTE4NmMwZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4N03Ylg5kDatuBVXIocrC-8edyphPJCnVioaSm7QZ9M",
+  },
+};

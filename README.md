@@ -24,7 +24,7 @@
   - npm i -D react-router-dom
   - sign in/up form
   - validation
-  - Setup Firebase [npm install firebase, npm install -g firebase-tools, copy SDK code from firebase console, firebase login, firebase init,firebase deploy]
+  - Setup Firebase [npm install firebase, npm install -g firebase-tools, copy SDK code from firebase console, firebase login, firebase init, npm run build, firebase deploy]
   - Deploy web app to firebase https://netflixgpt-518e1.web.app
   - added sign in/up firebase logic to handle login function
   - store user object from firebase to redux store

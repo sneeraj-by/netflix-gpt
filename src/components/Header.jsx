@@ -6,11 +6,13 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { LOGO, userIcon } from "../utils/constants";
 import { addUser, removeUser } from "../ducks/userSlice";
+import { setGptSearch } from "../ducks/gptSearchSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const { isGptSearch } = useSelector((store) => store.gptSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -41,10 +43,16 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center">
+          <button
+            className="px-4 py-1 m-2 rounded-md text-white bg-purple-900"
+            onClick={() => dispatch(setGptSearch())}
+          >
+            {isGptSearch ? "Browse Movie" : "GPT Search"}
+          </button>
           <img
             title={user?.displayName}
             src={user.photoURL || userIcon}

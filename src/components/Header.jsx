@@ -43,12 +43,12 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+    <div className="absolute w-full px-8 py-2 md:bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
       <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex items-center">
+        <div className="flex p-2 justify-center items-center">
           <button
-            className="px-4 py-1 m-2 rounded-md text-white bg-purple-900"
+            className="px-4 py-1 m-2 rounded-md text-white bg-purple-800"
             onClick={() => dispatch(setGptSearch())}
           >
             {isGptSearch ? "Browse Movie" : "GPT Search"}
@@ -57,7 +57,7 @@ const Header = () => {
             title={user?.displayName}
             src={user.photoURL || userIcon}
             alt="userIcon"
-            className="w-8 h-8 m-2 rounded-full"
+            className="hidden md:block w-8 h-8 m-2 rounded-full"
           />
           <button onClick={handleSignOut} className="text-white font-bold">
             Sign Out

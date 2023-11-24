@@ -51,7 +51,6 @@ const Login = () => {
             .catch((error) => {
               setError(error.message);
             });
-
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -79,14 +78,13 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_URL} alt="background" />
-        {/*  className="h-screen object-cover" */}
+        <img className="h-screen w-screen object-cover" src={BG_URL} alt="background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute w-4/12 p-12 bg-black bg-opacity-75 text-white rounded-lg left-0 right-0 mx-auto my-36"
+        className="absolute md:w-4/12 p-12 bg-black bg-opacity-75 text-white rounded-lg left-0 right-0 my-28 md:mx-auto mx-4"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-3xl py-2">
           {isSignIn ? "Sign In" : "Sign Up"}
         </h1>
         <p className="text-red-500 font-bold text-lg py-2 text-center">
@@ -97,23 +95,23 @@ const Login = () => {
             ref={name}
             type="text"
             placeholder="Full Name..."
-            className="p-4 my-4 w-full bg-gray-700"
+            className="p-4 my-2 w-full bg-gray-700"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email address..."
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-2 w-full bg-gray-700"
         />
         <input
           ref={password}
           type="password"
           placeholder="password..."
-          className="p-4 my-4 w-full bg-gray-700"
+          className="p-4 my-2 w-full bg-gray-700"
         />
         <button
-          className="p-4 my-6 w-full bg-red-700 rounded-md"
+          className="p-4 my-2 w-full bg-red-700 rounded-md"
           onClick={handleLogin}
         >
           {isSignIn ? "Sign In" : "Sign Up"}
